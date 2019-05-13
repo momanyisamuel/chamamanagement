@@ -1,0 +1,86 @@
+Chama 
+
+country - string
+name - string
+loan - boolean
+id - primary key
+goalId - foreignkey - goal
+riskApetite - integer
+
+
+user
+
+id
+chamaId - foreign key 
+phoneNnumber - integer
+firstName - string
+lastName -string
+nationalId - integer
+email - string
+password - string - hash
+
+goal
+
+id - primary key
+name - string
+duration - string
+riskrRank - integer
+
+loans
+
+id - primary key
+amount
+duration
+percentage
+userId
+
+Fines
+
+id 
+fineDate
+userId
+category
+amount
+
+Contributions
+
+id 
+userId
+depositDate
+amount
+payRefNumber
+fundAssignment
+comment
+
+Portfolio
+
+id
+name
+category 
+flag - boolean asset=yes no=liability
+description
+amount
+dateRecorded
+ref
+comment
+
+votes *subject to research
+id
+question
+description
+answer 0 = yes 1 = no
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
