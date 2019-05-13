@@ -7,7 +7,7 @@ id - primary key
 goalId - foreignkey - goal
 riskApetite - integer
 
-
+testing.. commit
 user
 
 id
