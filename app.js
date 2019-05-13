@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')))
 
 //database 
-const db = require('./config/config');
+const db = require('./config/database');
 //test db connection
 db.authenticate()
 .then(() => {
