@@ -24,11 +24,6 @@ db.authenticate()
   console.error('Unable to connect to the database:', err);
 });
 
-
-// app.get('/', (req, res) => res.send('index'))
-
-// app.use('/invoices', require('./routes/invoice'))
-
 const PORT = process.env.PORT || 9000;
 
 app.listen(PORT, console.log('app started...'));
