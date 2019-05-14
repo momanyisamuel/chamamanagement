@@ -16,14 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 //database 
 const db = require('./models/index');
 
-//test db connection
-// db.authenticate()
-// .then(() => {
-//   console.log('DB Connection has been established successfully.');
-// })
-// .catch(err => {
-//   console.error('Unable to connect to the database:', err);
-// });
+
 
 db.sequelize.sync({
     force : false,
