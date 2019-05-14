@@ -5,5 +5,4 @@ const Loans = require('../models/loans');
 
 router.get("/", (req, res) => res.render('loans'));
 
-
 module.exports = router;
