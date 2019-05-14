@@ -28,6 +28,18 @@ app.get('/', (req, res) => res.render('index'))
 
 app.use('/chamas', require('./routes/chamas'))
 app.use('/contributions', require('./routes/contributions'))
+app.use('/fines', require('./routes/fines'))
+app.use('/goal', require('./routes/goal'))
+app.use('/loans', require('./routes/loans'))
+app.use('/portfolio', require('./routes/portfolio'))
+app.use('/user', require('./routes/user'))
+app.use('/votes', require('./routes/votes'))
+
+
+
+
+
+
 
 
 const PORT = process.env.PORT || 9000;
