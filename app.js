@@ -25,9 +25,11 @@ db.authenticate()
 });
 
 
-app.get('/', (req, res) => res.send('index'))
+app.get('/', (req, res) => res.render('index'))
 
 app.use('/chamas', require('./routes/chamas'))
+app.use('/contributions', require('./routes/contributions'))
+
 
 const PORT = process.env.PORT || 9000;
 
