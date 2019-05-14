@@ -5,5 +5,4 @@ const Votes = require('../models/votes');
 
 router.get("/", (req, res) => res.render('votes'));
 
-
-module.exports = router;
+module.exports = router; 
