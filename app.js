@@ -14,15 +14,25 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')))
 
 //database 
-const db = require('./config/database');
+const db = require('./models/index');
+
 //test db connection
-db.authenticate()
-.then(() => {
-  console.log('DB Connection has been established successfully.');
+// db.authenticate()
+// .then(() => {
+//   console.log('DB Connection has been established successfully.');
+// })
+// .catch(err => {
+//   console.error('Unable to connect to the database:', err);
+// });
+
+db.sequelize.sync({
+    force : false,
+    logging : console.log
+}).then(function(){
+   console.log('Nice db looks good')
+}).catch(function(err){
+  console.log(err, "oh no! something is wrong")
 })
-.catch(err => {
-  console.error('Unable to connect to the database:', err);
-});
 
 
 app.get('/', (req, res) => res.render('index'))
