@@ -1,0 +1,5 @@
+Chama.findAll().then( chamas => {
+        res.render('chamas', {
+            chamas
+        })
+    })
