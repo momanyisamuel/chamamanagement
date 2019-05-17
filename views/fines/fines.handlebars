@@ -1,0 +1,37 @@
+<h2>This is for dem FINE ass Fines!</h2>
+
+
+<h1>Fines yay</h1>
+
+{{!-- add chamas form --}}
+
+<form action="/fines/add" method="POST">
+  <input type="text" value="" name="fineDate" placeholder="MM/DD/YYY">
+  
+  <br><br>
+
+  <input type="text" value="" name="fineCategory" placeholder="Category"> 
+  
+  <br><br>
+
+  <input type="text" value="" name="fineAmount" placeholder="Amount"> 
+
+  <br><br>
+
+  <input type="submit" value="Create Fine">
+</form>
+
+
+
+{{!-- display list of chamas with edit and delete button --}}
+
+<div class="fines-list">
+    
+    <ul>
+        {{#each Fines }}
+             <li> {{ fineAmount }}<span><a href="/fines/{{id}}">Delete</a></span></li>
+        {{ else }}
+            <li> No fines available</li>
+        {{/each }}
+    </ul>
+</div>

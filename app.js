@@ -2,7 +2,7 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const path = require('path');
-const Chama = require('./models').Chama;
+
 const app = express();
 
 //handlebars
@@ -14,16 +14,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')))
 
 //database 
-const db = require('./models');
-
-
+const db = require('./models/index');
 
 db.sequelize.sync({
-    force : false
+    force : false,
+    logging : console.log
 }).then(function(){
-  //  console.log('Nice db looks good')
+   console.log('Nice db looks good')
 }).catch(function(err){
-  // console.log(err, "oh no! something is wrong")
+  console.log(err, "oh no! something is wrong")
 })
 
 app.get('/', (req, res) => res.render('index'))
