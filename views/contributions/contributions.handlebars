@@ -1,1 +1,49 @@
 <h1> I DID SOMETHING!!</h1>
+
+<h2>This is for dem FINE ass Fines!</h2>
+
+
+<h1>Contributions</h1>
+
+{{!-- add Contribution form --}}
+{{!-- 
+depositDate, payRefNumber, depositAmount, fundAssignment, comment --}}
+
+<form action="/contributions/add" method="POST">
+  <input type="text" value="" name="depositDate" placeholder="MM/DD/YYY">
+  
+  <br><br> 
+
+  <input type="text" value="" name="payRefNumber" placeholder="Payment Ref Number"> 
+  
+  <br><br>
+
+  <input type="text" value="" name="depositAmount" placeholder="Contribution Amount"> 
+
+  <br><br>
+
+  <input type="text" value="" name="fundAssignment" placeholder="Fund Assigned to.."> 
+
+  <br><br>
+
+  <input type="text" value="" name="comment" placeholder="Contribution Comments"> 
+
+  <br><br>
+
+  <input type="submit" value="Add Contribution">
+</form>
+
+
+
+{{!-- display list of contributinos with edit and delete button --}}
+
+<div class="contribution-list">
+    
+    <ul>
+        {{#each Contributions }}
+             <li> {{ depositDate}} {{payRefNumber}} {{ depositAmount}} {{fundAssignment }} {{comment }}<span><a href="/contributions/{{id}}">Delete</a></span></li>
+        {{ else }}
+            <li> No fines available</li>
+        {{/each }}
+    </ul>
+</div>
