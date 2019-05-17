@@ -1,0 +1,40 @@
+<h1>Votes</h1>
+
+{{!-- add Votes form --}}
+{{!--
+    question, description, answer, pollDate --}}
+
+<form action="/votes/add" method="POST">
+  <input type="text" value="" name="question" placeholder="Vote Topic">
+  
+  <br><br> 
+
+  <input type="text" value="" name="description" placeholder="Vote Description"> 
+  
+  <br><br>
+
+  <input type="text" value="" name="answer" placeholder="Final Vote Tally"> 
+
+  <br><br>
+
+  <input type="text" value="" name="pollDate" placeholder="Vote Date"> 
+
+  <br><br>
+
+  <input type="submit" value="Creat New Vote ">
+</form>
+
+
+
+{{!-- display list of polls with edit and delete button --}}
+
+<div class="votes-list">
+    
+    <ul>
+        {{#each Votes }}
+             <li> {{ pollDate}} {{question}} {{description}} {{answer}} <span><a href="/votes/{{id}}">Delete</a></span></li>
+        {{ else }}
+            <li> No votes available</li>
+        {{/each }}
+    </ul>
+</div>
