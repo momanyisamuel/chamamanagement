@@ -1,0 +1,39 @@
+<h3>A man is only as good as his goal</h3>
+
+<h2>This is for dem FINE ass Fines!</h2>
+
+
+<h1>Fines yay</h1>
+
+{{!-- add Goals form --}}
+
+<form action="/goal/add" method="POST">
+  <input type="text" value="" name="name" placeholder="Goal Name">
+  
+  <br><br>
+
+  <input type="text" value="" name="duration" placeholder="Duration"> 
+  
+  <br><br>
+
+  <input type="text" value="" name="riskRanking" placeholder="Risk Ranking"> 
+
+  <br><br>
+
+  <input type="submit" value="Create Goal">
+</form>
+
+
+
+{{!-- display list of chamas with edit and delete button --}}
+
+<div class="goals-list">
+    
+    <ul>
+        {{#each Goal }}
+             <li> {{ name }}  {{duration}}  {{riskRanking}}<span><a href="/goal/{{id}}">Delete</a></span></li>
+        {{ else }}
+            <li> No fines available</li>
+        {{/each }}
+    </ul>
+</div>
