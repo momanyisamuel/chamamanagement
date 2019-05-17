@@ -1,0 +1,37 @@
+<h1>Loans</h1>
+
+{{!-- add Loan form --}}
+{{!--
+
+loanAmount, duration, interestRate --}}
+
+<form action="/loans/add" method="POST">
+  <input type="text" value="" name="loanAmount" placeholder="Loan Amount">
+  
+  <br><br> 
+
+  <input type="text" value="" name="duration" placeholder="Loan Duration"> 
+  
+  <br><br>
+
+  <input type="text" value="" name="interestRate" placeholder="Loan Interest Rate %"> 
+
+  <br><br>
+
+  <input type="submit" value="Creat New Loan ">
+</form>
+
+
+
+{{!-- display list of loans with edit and delete button --}}
+
+<div class="loans-list">
+    
+    <ul>
+        {{#each Loans }}
+             <li> {{ loanAmount}} {{duration}} {{interestRate}} <span><a href="/loans/{{id}}">Delete</a></span></li>
+        {{ else }}
+            <li> No loans available</li>
+        {{/each }}
+    </ul>
+</div>
