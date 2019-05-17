@@ -1,0 +1,56 @@
+<h1>Portfolio</h1>
+
+{{!-- add to Portfolio form --}}
+{{!--
+ name, category, assetFlag, description, amount, dateRecorded, refDetails, comment --}}
+
+<form action="/portfolio/add" method="POST">
+  <input type="text" value="" name="name" placeholder="Item Name">
+  
+  <br><br> 
+
+  <input type="text" value="" name="category" placeholder="Asset Category"> 
+  
+  <br><br>
+
+  <input type="text" value="" name="assetFlag" placeholder="Is this an Asset"> 
+
+  <br><br>
+
+  <input type="text" value="" name="description" placeholder="Description"> 
+
+  <br><br>
+
+  <input type="text" value="" name="amount" placeholder="Cost/Value">
+   
+  <br><br>
+
+  <input type="text" value="" name="dateRecorded" placeholder="Date Recorded mm/dd/yyyy">
+  
+  <br><br>
+
+  <input type="text" value="" name="refDetails" placeholder="Reference Details">
+
+  <br><br>
+
+  <input type="text" value="" name="comment" placeholder="Comments">
+  
+  
+  <br><br>
+  <input type="submit" value="Creat New Item in Portfolio ">
+</form>
+
+
+
+{{!-- display list of Assets with edit and delete button --}}
+
+<div class="portfolio-list">
+    
+    <ul>
+        {{#each Portfolio }}
+             <li> {{ name}} {{category}} {{description}} {{dateRecorded}} {{amount}} {{assetFlag}} {{refDetails}} {{comment}}<span><a href="/portfolio/{{id}}">Delete</a></span></li>
+        {{ else }}
+            <li> No Assets available</li>
+        {{/each }}
+    </ul>
+</div>
