@@ -26,10 +26,22 @@ loanAmount, duration, interestRate --}}
 {{!-- display list of loans with edit and delete button --}}
 
 <div class="loans-list">
-    
+    <style>
+        table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+        th, td{
+            padding: 15px;
+        }
+    </style>
     <ul>
+        <table>
+        <th>Loan Amount</th><th>Loan Duration</th><th>Interest Rate</th><th>Options</th>
         {{#each Loans }}
-             <li> {{ loanAmount}} {{duration}} {{interestRate}} <span><a href="/loans/{{id}}">Delete</a></span></li>
+        <tr>
+             <td> {{ loanAmount}}</td> <td>{{duration}}</td> <td>{{interestRate}}</td> <td><span><a href="/loans/{{id}}">Delete</a></span></td>
+        </tr>
         {{ else }}
             <li> No loans available</li>
         {{/each }}

@@ -29,10 +29,22 @@
 {{!-- display list of polls with edit and delete button --}}
 
 <div class="votes-list">
-    
+      <style>
+        table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+        th, td{
+            padding: 15px;
+        }
+    </style>
     <ul>
+         <table>    
+        <th>Poll Date</th><th>Question</th><th>Description</th><th>Votes Cast</th><th>Options</th>
         {{#each Votes }}
-             <li> {{ pollDate}} {{question}} {{description}} {{answer}} <span><a href="/votes/{{id}}">Delete</a></span></li>
+        <tr>
+             <td> {{ pollDate}}</td> <td> {{question}}</td> <td>{{description}}</td> <td>{{answer}}</td> <td><span><a href="/votes/{{id}}">Delete</a></span></td>
+        </tr>
         {{ else }}
             <li> No votes available</li>
         {{/each }}

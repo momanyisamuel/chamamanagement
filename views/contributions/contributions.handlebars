@@ -33,12 +33,24 @@ depositDate, payRefNumber, depositAmount, fundAssignment, comment --}}
 {{!-- display list of contributinos with edit and delete button --}}
 
 <div class="contribution-list">
-    
+    <style>
+        table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+        th, td{
+            padding: 15px;
+        }
+    </style>
     <ul>
+        <table>
+            <th>Deposit Date</th><th>Payment Reference</th><th>Deposit Amount</th><th>Fund Assingment</th><th>Comment</th><th>Options</th>
         {{#each Contributions }}
-             <li> {{ depositDate}} {{payRefNumber}} {{ depositAmount}} {{fundAssignment }} {{comment }}<span><a href="/contributions/{{id}}">Delete</a></span></li>
+            <tr>
+             <td>{{ depositDate}}</td> <td> {{payRefNumber}}</td> <td>{{ depositAmount}}</td> <td>{{fundAssignment }}</td>  <td>{{comment }}</td><td><span><a href="/contributions/{{id}}">Delete</a></span></td>
         {{ else }}
             <li> No fines available</li>
         {{/each }}
+        </table>
     </ul>
 </div>

@@ -23,12 +23,25 @@
 {{!-- display list of chamas with edit and delete button --}}
 
 <div class="fines-list">
-    
+     <style>
+        table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+        th, td{
+            padding: 15px;
+        }
+    </style>
     <ul>
+        <table>
+        <th>Fine Date</th><th>Fine Category</th><th>Fine Amount</th><th>Options</th>
         {{#each Fines }}
-             <li> {{ fineAmount }}<span><a href="/fines/{{id}}">Delete</a></span></li>
+        <tr>
+             <td> {{fineDate}}</td> <td>{{fineCategory}}</td> <td>{{ fineAmount }}</td> <td><span><a href="/fines/{{id}}">Delete</a></span></td>
+        </tr>
         {{ else }}
             <li> No fines available</li>
         {{/each }}
+        </table>
     </ul>
 </div>
