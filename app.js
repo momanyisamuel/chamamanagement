@@ -27,7 +27,7 @@ db.sequelize.sync({
 })
 
 
-app.use(session({ secret: "cats" }));
+app.use(session({secret: "cats"}));
 app.use(passport.initialize());
 app.use(passport.session());
 
