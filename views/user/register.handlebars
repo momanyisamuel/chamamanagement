@@ -1,0 +1,26 @@
+<h1>User registration</h1>
+
+<form action="/user/add" method="POST">
+
+    <input type="text" name="firstname" placeholder="firstname">
+    <br><br>
+    <input type="text" name="lastname" placeholder="lastname">
+    <br><br>
+    <input type="text" name="email" placeholder="email">
+    <br><br>
+    <input type="text" name="password" placeholder="password">
+    <br><br>
+    <input type="submit" value="register">
+
+</form>
+
+<div class="fines-list">
+    
+    <ul>
+        {{#each User }}
+             <li> {{ email }}<span><a href="/user/{{id}}">Delete</a></span></li>
+        {{ else }}
+            <li> No users available</li>
+        {{/each }}
+    </ul>
+</div>

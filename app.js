@@ -1,5 +1,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
+var passport = require('passport')
+const session = require("express-session")
 const bodyParser = require('body-parser');
 const path = require('path');
 
@@ -10,7 +12,6 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 app.use(bodyParser.urlencoded({ extended: false }));
-
 app.use(express.static(path.join(__dirname, 'public')))
 
 //database 
@@ -25,7 +26,13 @@ db.sequelize.sync({
   console.log(err, "oh no! something is wrong")
 })
 
-app.get('/', (req, res) => res.render('index'))
+
+app.use(session({ secret: "cats" }));
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+app.use('/', require('./routes/login'))
 
 app.use('/chamas', require('./routes/chamas'))
 app.use('/contributions', require('./routes/contributions'))

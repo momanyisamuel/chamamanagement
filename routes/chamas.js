@@ -3,8 +3,6 @@ const router = express.Router();
 const Models = require('../models');
 
 
-
-
 //show chamas
 router.get('/', (req,res) => 
 Models.Chama.findAll()
@@ -20,7 +18,6 @@ Models.Chama.findAll()
 )
 
 //add an invoice
-// router.get("/add", (req, res) => res.render('./chamas/chamas'));
 router.post('/add', (req, res) => {
 
     let { name, country } = req.body;
@@ -33,8 +30,6 @@ router.post('/add', (req, res) => {
 })
 
 //delete
-
-
 router.get('/:id', (req, res) => { 
     console.log(req.params);
     // Chama.findOne({where:{ id : req.params.id }}).then({
