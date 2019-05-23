@@ -1,0 +1,69 @@
+<h1>Portfolio</h1>
+
+{{!-- add to Portfolio form --}}
+{{!--
+ name, category, assetFlag, description, amount, dateRecorded, refDetails, comment --}}
+
+<form action="/portfolio/add" method="POST">
+  <input type="text" value="" name="name" placeholder="Item Name">
+  
+  <br><br> 
+
+  <input type="text" value="" name="category" placeholder="Asset Category"> 
+  
+  <br><br>
+
+  <input type="text" value="" name="assetFlag" placeholder="Is this an Asset"> 
+
+  <br><br>
+
+  <input type="text" value="" name="description" placeholder="Description"> 
+
+  <br><br>
+
+  <input type="text" value="" name="amount" placeholder="Cost/Value">
+   
+  <br><br>
+
+  <input type="text" value="" name="dateRecorded" placeholder="Date Recorded mm/dd/yyyy">
+  
+  <br><br>
+
+  <input type="text" value="" name="refDetails" placeholder="Reference Details">
+
+  <br><br>
+
+  <input type="text" value="" name="comment" placeholder="Comments">
+  
+  
+  <br><br>
+  <input type="submit" value="Creat New Item in Portfolio ">
+</form>
+
+
+
+{{!-- display list of Assets with edit and delete button --}}
+
+<div class="portfolio-list">
+    <style>
+        table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+        th, td{
+            padding: 15px;
+        }
+    </style>
+    <ul>
+    <table>    
+        <th>Asset Name</th><th>Category</th><th>Description</th><th>Date Recorded</th><th>Asset Cost/value</th><th>Is Asset?</th><th>Reference Details</th><th>Comment</th><th>Options</th>
+        {{#each Portfolio }}
+        <tr>
+             <td> {{ name}}</td> <td>{{category}}</td> <td>{{description}}</td> <td>{{dateRecorded}}</td> <td>{{amount}}</td> <td>{{assetFlag}}</td> <td>{{refDetails}}</td> <td>{{comment}}</td> <td><span><a href="/portfolio/{{id}}">Delete</a></span></td>
+    </tr>         
+        {{ else }}
+            <li> No Assets available</li>
+        {{/each }}
+    </table>
+    </ul>
+</div>
