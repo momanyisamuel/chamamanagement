@@ -14,7 +14,7 @@ module.exports = {
       duration: {
         type: Sequelize.INTEGER
       },
-      riskRankingr: {
+      riskRanking: {
         type: Sequelize.INTEGER
       },
       createdAt: {

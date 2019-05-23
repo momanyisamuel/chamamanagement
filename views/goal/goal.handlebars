@@ -1,0 +1,47 @@
+<h1>Goals</h1>
+
+{{!-- add Goals form --}}
+
+<form action="/goal/add" method="POST">
+  <input type="text" value="" name="name" placeholder="Goal Name">
+  
+  <br><br>
+
+  <input type="text" value="" name="duration" placeholder="Duration"> 
+  
+  <br><br>
+
+  <input type="text" value="" name="riskRanking" placeholder="Risk Ranking"> 
+
+  <br><br>
+
+  <input type="submit" value="Create Goal">
+</form>
+
+
+
+{{!-- display list of goals with edit and delete button --}}
+
+<div class="goals-list">
+    <style>
+        table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+        th, td{
+            padding: 15px;
+        }
+    </style>
+    <ul>
+        <table>
+        <th>Goal Name</th><th>Goal Duration</th><th>Risk Ranking</th><th>Options</th>
+        {{#each Goal }}
+        <tr>
+            <td> {{ name }}</td> <td>{{duration}}</td> <td>{{riskRanking}} </td> <td><span><a href="/goal/{{id}}">Delete</a></span></td
+        </tr>>
+        {{ else }}
+            <li> No fines available</li>
+        {{/each }}
+        </table>
+    </ul>
+</div>

@@ -4,12 +4,25 @@
 {{!-- display list of chamas with edit and delete button --}}
 
 <div class="chamas-list">
-    
+    <style>
+        table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        }
+        th, td{
+            padding: 15px;
+        }
+    </style>
     <ul>
+        <table>
+            <th>Name</th><th>Options<th></th>
         {{#each Chamas }}
-             <li> {{ name }} <span><a href="/chamas/edit/{{id}}">edit</a></span> <span><a href="/chamas/{{id}}">Delete</a></span></li>
+            <tr>
+             <td> {{ name }}</td><td><span><a href ="/chamas/{{id}}">Delete</a></td></span></td>
+            </tr>
         {{ else }}
             <li> No chamas available</li>
         {{/each }}
+        </table>
     </ul>
 </div>
