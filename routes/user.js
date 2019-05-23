@@ -21,10 +21,10 @@ Models.User.findAll()
 //add an invoice
 router.post('/add', (req, res) => {
 
-    let { firstname, lastname, email, password } = req.body;
+    let { firstname, lastname, email, password, userStatus } = req.body;
 
     Models.User.create({
-        firstname, lastname, email, password
+        firstname, lastname, email, password, userStatus
     })
     .then(User => res.redirect('/user'))
     .catch(err => console.log(err))
