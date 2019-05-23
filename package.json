@@ -10,11 +10,18 @@
   "author": "Kevin Kimani",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "bootstrap": "^3.4.1",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.2",
+<<<<<<< HEAD
     "jsonwebtoken": "^8.5.1",
+=======
+    "express-session": "^1.16.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+>>>>>>> e4195c0117ee6b97108d261e71de4bcdcdb126d6
     "pg": "^7.11.0",
     "pg-hstore": "^2.3.2",
     "sequelize": "^5.8.6",
