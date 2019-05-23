@@ -26,9 +26,9 @@ db.sequelize.sync({
 })
 
 
-app.use(session({secret: "cats"}));
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(session({secret: "cats"}));
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 
 app.use('/', require('./routes/login'))
@@ -41,6 +41,7 @@ app.use('/loans', require('./routes/loans'))
 app.use('/portfolio', require('./routes/portfolio'))
 app.use('/user', require('./routes/user'))
 app.use('/votes', require('./routes/votes'))
+app.use('/dashboard', require('./routes/dashboard'))
 
 
 

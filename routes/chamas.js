@@ -17,7 +17,7 @@ Models.Chama.findAll()
   })
 )
 
-//add an invoice
+//add an chama
 router.post('/add', (req, res) => {
 
     let { name, country } = req.body;
@@ -27,6 +27,25 @@ router.post('/add', (req, res) => {
     })
     .then(Chamas => res.redirect('/chamas'))
     .catch(err => console.log(err))
+})
+
+// router.get('/edit', (req,res) => res.render('./chamas/edit'))
+//delete
+router.get('/edit/:id', (req, res) => { 
+  console.log(req.params);
+  // Chama.findOne({where:{ id : req.params.id }}).then({
+  //     var delId = req.params.id
+  // })
+  Models.Chama.findOne({
+    where:{ id : req.params.id}
+  })
+  .then(Chamas => { 
+    console.log(Chamas)
+    res.render('./chamas/edit', {
+        Chamas
+    })
+  })
+  .catch(err => console.log(err))
 })
 
 //delete

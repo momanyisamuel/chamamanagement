@@ -1,7 +1,5 @@
 'use strict';
 
-
-
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     firstName: DataTypes.STRING,
@@ -9,10 +7,12 @@ module.exports = (sequelize, DataTypes) => {
     phoneNumber: DataTypes.INTEGER,
     nationalId: DataTypes.STRING,
     email: DataTypes.STRING,
+    userStatus: DataTypes.INTEGER,
     password: DataTypes.STRING
   }, {});
   User.associate = function(models) {
     // associations can be defined here
+    User.belongsTo(models.Chama)
   };
 
   return User;
