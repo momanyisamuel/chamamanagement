@@ -6,9 +6,40 @@
         <input type="text" placeholder="email@mail.com" name="email">
         <input type="text" placeholder="firstname" name="firstname">
         <input type="hidden" name="userStatus" value="0">
+        <input type="hidden" name="ChamaId" value="{{Chamas.id}}">
+    </div>
+    <br>
+    <div class="form-group">
+        <input type="text" placeholder="email@mail.com" name="email">
+        <input type="text" placeholder="firstname" name="firstname">
+        <input type="hidden" name="userStatus" value="0">
+        <input type="hidden" name="ChamaId" value="{{Chamas.id}}">
     </div>
     <br>
     <div>
         <input type="submit" value="Send Invites">
     </div>
 </form>
+
+<div>
+    <h3>Invited Members</h3>
+    <ul>
+        {{#each Chamas.Users}}
+            <li>{{email}} <span id="status" onload="onLoadStatus()"></span></li>
+        {{else}}
+            <p>No members</p>
+        {{/each}}
+
+    </ul>
+</div>
+<script>
+    function onLoadStatus() {
+          for (const i = 0; i<Chamas.Users.length; i++){
+            console.log(Chamas.Users[i])
+            if(Chamas.Users[i].userStatus === 0)  {
+                const print = document.getElementById("status").innerHTML = "Pending"
+              }
+          }
+          return print;
+      }
+</script>

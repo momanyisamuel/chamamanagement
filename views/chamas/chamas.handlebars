@@ -15,12 +15,21 @@
     </style>
     <ul>
         <table>
-            <th>Name</th><th>Options<th></th>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th colspan="2">Options</th>
+                </tr>
+            </thead>
+            <tbody>
         {{#each Chamas }}
             <tr>
-             <td> {{ name }}</td><td><span><a href ="/chamas/{{id}}">Delete</a></td></span></td>
+             <td> {{ name }}</td>
+             <td><span><a href ="/chamas/edit/{{id}}">Edit</a></td></span></td>
+             <td><span><a href ="/chamas/{{id}}">Delete</a></td></span></td>
             </tr>
         {{ else }}
+            </tbody>
             <li> No chamas available</li>
         {{/each }}
         </table>
