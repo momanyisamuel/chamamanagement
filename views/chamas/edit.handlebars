@@ -25,7 +25,7 @@
     <h3>Invited Members</h3>
     <ul>
         {{#each Chamas.Users}}
-            <li>{{email}} <span id="status" onload="onLoadStatus()"></span></li>
+            <li>{{email}} <span id="status" class="{{userStatus}}" style="background-color: brown; padding:5px; color:white;">Pending</span></li><br>
         {{else}}
             <p>No members</p>
         {{/each}}
@@ -33,13 +33,19 @@
     </ul>
 </div>
 <script>
-    function onLoadStatus() {
-          for (const i = 0; i<Chamas.Users.length; i++){
-            console.log(Chamas.Users[i])
-            if(Chamas.Users[i].userStatus === 0)  {
-                const print = document.getElementById("status").innerHTML = "Pending"
-              }
-          }
-          return print;
-      }
+    window.onload = function() {
+        var pending = 0
+        var active = 1
+        var rejected = 2
+
+        var current = document.getElementById('status').className
+
+        if(current === pending){
+            document.getElementById('status').innerHTML = "Pending"
+        } else if( current === active) {
+            document.getElementById('status').innerHTML = "Active"
+        } else if( current === rejected) {
+            document.getElementById('status').innerHTML = "Rejected"
+        }
+    }
 </script>
