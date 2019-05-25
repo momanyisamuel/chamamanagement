@@ -1,4 +1,6 @@
 const Models = require('../models');
+const exphbs = require('express-handlebars');
+
 
 module.exports.showChamas = (req,res) => {
     Models.Chama.findAll()
@@ -25,6 +27,7 @@ module.exports.addChamas = (req, res) => {
 }
 
 module.exports.editChamas = (req, res) => { 
+    
   
     Models.Chama.findOne({
       where:{ id : req.params.id},
@@ -32,7 +35,7 @@ module.exports.editChamas = (req, res) => {
         model : Models.User
      }]
     })
-    .then(Chamas => { 
+    .then(Chamas => {          
             
       res.render('./chamas/edit', {
           Chamas
@@ -54,3 +57,4 @@ module.exports.deleteChamas = (req, res) => {
 
 //accept status
 //decline status
+
