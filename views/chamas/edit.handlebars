@@ -39,10 +39,10 @@
         var rejected = 2
 
         var current = document.getElementById('status').className
-
+        //has to happen in a loop - use handlebar helpers
         if(current === pending){
             document.getElementById('status').innerHTML = "Pending"
-        } else if( current === active) {
+        } else ( current === active) {
             document.getElementById('status').innerHTML = "Active"
         } else if( current === rejected) {
             document.getElementById('status').innerHTML = "Rejected"

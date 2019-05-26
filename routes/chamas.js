@@ -7,9 +7,10 @@ router.get('/', controller.showChamas)
 //add a chama
 router.post('/add', controller.addChamas)
 //edit a chama
-//router.get('/edit/:id', controller.editChamas)
+router.get('/edit/:id', controller.editChamas)
 //delete
 router.get('/:id', controller.deleteChamas)
 
+router.get('/accept/:id', controller.acceptInvite)
 
 module.exports = router;
