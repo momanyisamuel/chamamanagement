@@ -7,6 +7,12 @@ const path = require('path');
 
 const app = express();
 
+app.use(session({secret: "cats"}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+//passport config
+require('./config/passport')(passport)
 //handlebars
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars'); 
@@ -26,9 +32,7 @@ db.sequelize.sync({
 })
 
 
-// app.use(session({secret: "cats"}));
-// app.use(passport.initialize());
-// app.use(passport.session());
+
 
 
 app.use('/', require('./routes/login'))
