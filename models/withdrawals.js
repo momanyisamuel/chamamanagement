@@ -10,6 +10,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Withdrawals.associate = function(models) {
     // associations can be defined here
+    Withdrawals.belongsTo(models.User)
+
   };
   return Withdrawals;
 };

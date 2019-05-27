@@ -9,6 +9,9 @@ module.exports = (sequelize, DataTypes) => {
   Chama.associate = function(models) {
     // associations can be defined here
     Chama.hasMany(models.User)
+    Chama.hasMany(models.Goal)
+    Chama.hasMany(models.Portfolio)
+    Chama.hasMany(models.Votes)
   };
   return Chama;
 };
