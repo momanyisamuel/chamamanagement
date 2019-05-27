@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DMS</title>
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/carbon-components.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar">
+            <a href="#" class="sidebar-logo">MyChama</a>
+            
+            <ul class="sidebar-menu">
+                <div>
+                    <li><a href="#"><span style="font-weight: bold">Dashboard</span></a></li>
+                    <li><a href="#">No groups</a></li>
+                    <li><a href="group.html">Group Name</a></li>
+                </div>
+                <!-- display if user is in a group  -->
+                <li><a href="deposits.html">Deposits</a></li>
+                <li><a href="withdrawals.html">Withdrawals</a></li>
+                <li><a href="loans.html">Loans</a></li>
+                <li><a href="members.html">Members</a></li>
+                <li><a href="fines.html">Fines</a></li>
+                <li><a href="#">Votes</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Reports</a></li>
+            </ul>
+
+            <div class="sidebar-user">
+                <p><i class="far fa-user-circle"></i> John Doe</p>
+            </div>
+        </div>
+        <div class="main-section">
+            <div class="top-bar">
+                <div class="top-bar--title">
+                    <h3>Fines incurred</h3>
+                </div>
+                <ul class="top-bar--nav">
+                    <li><a href="#" class="black">Sign out</a></li>
+                </ul>
+            </div>
+            
+            <div class="main-content">
+                <div class="data-section">
+                   <!-- notification -->
+                   <div class="message-card">
+                       <h4> This is a message <span><i class="fas fa-plus"></i></span></h4>
+                   </div>
+                   <div class="content">
+                        <h4>Fines </h4>
+
+                        {{!-- add Fines form --}}
+                        
+                        <form action="/fines/add" method="POST">
+                          <input type="text" value="" name="fineDate" placeholder="MM/DD/YYY">
+                        
+                        
+                          <input type="text" value="" name="fineCategory" placeholder="Category"> 
+                          
+                        
+                          <input type="text" value="" name="fineAmount" placeholder="Amount"> 
+                        
+                        
+                          <input type="submit" value="Create Fine">
+                        </form>
+                        
+                        
+                        
+                        {{!-- display list of chamas with edit and delete button --}}
+                        
+                        <div class="fines-list">
+                             <style>
+                                table, th, td {
+                          border: 1px solid black;
+                          border-collapse: collapse;
+                        }
+                                th, td{
+                                    padding: 15px;
+                                }
+                            </style>
+                            <ul>
+                                <table>
+                                <th>Fine Date</th><th>Fine Category</th><th>Fine Amount</th><th>Options</th>
+                                {{#each Fines }}
+                                <tr>
+                                     <td> {{fineDate}}</td> <td>{{fineCategory}}</td> <td>{{ fineAmount }}</td> <td><span><a href="/fines/{{id}}">Delete</a></span></td>
+                                </tr>
+                                {{ else }}
+                                    <li> No fines available</li>
+                                {{/each }}
+                                </table>
+                            </ul>
+                        </div>
+                   </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

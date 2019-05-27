@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DMS</title>
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/carbon-components.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar">
+            <a href="#" class="sidebar-logo">MyChama</a>
+            
+            <ul class="sidebar-menu">
+                <div>
+                    <li><a href="#"><span style="font-weight: bold">Dashboard</span></a></li>
+                    <li><a href="#">No groups</a></li>
+                    <li><a href="group.html">Group Name</a></li>
+
+                </div>
+                <!-- display if user is in a group  -->
+                <li><a href="deposits.html">Deposits</a></li>
+                <li><a href="withdrawals.html">Withdrawals</a></li>
+                <li><a href="loans.html">Loans</a></li>
+                <li><a href="members.html">Members</a></li>
+                <li><a href="fines.html">Fines</a></li>
+                <li><a href="#">Votes</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Reports</a></li>
+            </ul>
+
+            <div class="sidebar-user">
+                <p><i class="far fa-user-circle"></i> John Doe</p>
+            </div>
+        </div>
+        <div class="main-section">
+            <div class="top-bar">
+                <div class="top-bar--title">
+                    <h3>Members</h3>
+                </div>
+                <ul class="top-bar--nav">
+                    <li><a href="addinvoice.html"><i class="fas fa-plus"></i> Add a member</a></li>
+                    <li><a href="#" class="black">Sign out</a></li>
+                </ul>
+            </div>
+            
+            <div class="main-content">
+                <div class="data-section">
+                   <!-- notification -->
+                   <div class="message-card">
+                       <h4> This is a message <span><i class="fas fa-plus"></i></span></h4>
+                   </div>
+                   <div class="content">
+                        <h4>Add Members</h4>
+
+                        <form action="/user/add" method="POST">
+                            <div class="form-group">
+                                <input type="text" placeholder="email@mail.com" name="email">
+                                <input type="text" placeholder="firstname" name="firstname">
+                                <input type="hidden" name="userStatus" value="0">
+                                <input type="hidden" name="ChamaId" value="{{Chamas.id}}">
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <input type="text" placeholder="email@mail.com" name="email">
+                                <input type="text" placeholder="firstname" name="firstname">
+                                <input type="hidden" name="userStatus" value="0">
+                                <input type="hidden" name="ChamaId" value="{{Chamas.id}}">
+                            </div>
+                            <br>
+                            <div>
+                                <input type="submit" value="Send Invites">
+                            </div>
+                        </form>
+                        
+                        <div>
+                            <h4>Invited Members</h4>
+                            <ul>
+                                {{#each Chamas.Users}}
+                                    <li>{{email}} <span id="status" class="{{userStatus}}" style="background-color: brown; padding:5px; color:white;">Pending</span></li><br>
+                                {{else}}
+                                    <p>No members</p>
+                                {{/each}}
+                        
+                            </ul>
+                        </div>
+                        <script>
+                            window.onload = function() {
+                                var pending = 0
+                                var active = 1
+                                var rejected = 2
+                        
+                                var current = document.getElementById('status').className
+                                //has to happen in a loop - use handlebar helpers
+                                if(current === pending){
+                                    document.getElementById('status').innerHTML = "Pending"
+                                } else ( current === active) {
+                                    document.getElementById('status').innerHTML = "Active"
+                                } else if( current === rejected) {
+                                    document.getElementById('status').innerHTML = "Rejected"
+                                }
+                            }
+                        </script>
+                   </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

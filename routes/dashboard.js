@@ -21,7 +21,7 @@ router.get('/', auth.ensureAunthenticated, (req,res) => {
     });
   })
   .catch(err => console.log(err))
-  res.render('./dashboard/dashboard')
+  res.json
 })
 
 router.post('/addchama', (req,res) => {

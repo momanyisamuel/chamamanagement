@@ -6,9 +6,10 @@ module.exports.showChamas = (req,res) => {
     Models.Chama.findAll()
     .then( Chamas => { 
         // console.log(Chamas)
-        res.render('./chamas/chamas', {
-            Chamas
-        })
+        res.json(Chamas)
+        // res.render('./chamas/chamas', {
+        //     Chamas
+        // })
     })
     .catch(err => {
         console.log( err);
@@ -35,10 +36,10 @@ module.exports.editChamas = (req, res) => {
      }]
     })
     .then(Chamas => {          
-            
-      res.render('./chamas/edit', {
-          Chamas
-      })
+      res.json(Chamas)     
+      // res.render('./chamas/edit', {
+      //     Chamas
+      // })
     })
     .catch(err => console.log(err))
 }

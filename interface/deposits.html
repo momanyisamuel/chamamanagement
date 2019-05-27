@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DMS</title>
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/carbon-components.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar">
+            <a href="#" class="sidebar-logo">MyChama</a>
+            
+            <ul class="sidebar-menu">
+                <div>
+                    <li><a href="#"><span style="font-weight: bold">Dashboard</span></a></li>
+                    <li><a href="#">No groups</a></li>
+                    <li><a href="group.html">Group Name</a></li>
+
+                </div>
+                <!-- display if user is in a group  -->
+                <li><a href="deposits.html">Deposits</a></li>
+                <li><a href="withdrawals.html">Withdrawals</a></li>
+                <li><a href="loans.html">Loans</a></li>
+                <li><a href="members.html">Members</a></li>
+                <li><a href="fines.html">Fines</a></li>
+                <li><a href="#">Votes</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Reports</a></li>
+            </ul>
+
+            <div class="sidebar-user">
+                <p><i class="far fa-user-circle"></i> John Doe</p>
+            </div>
+        </div>
+        <div class="main-section">
+            <div class="top-bar">
+                <div class="top-bar--title">
+                    <h3>Deposits</h3>
+                </div>
+                <ul class="top-bar--nav">
+                    <li><a href="addinvoice.html"><i class="fas fa-plus"></i>make a deposit</a></li>
+                    <li><a href="#" class="black">Sign out</a></li>
+                </ul>
+            </div>
+            
+            <div class="main-content">
+                <div class="data-section">
+                   <!-- notification -->
+                   <div class="message-card">
+                       <h4> This is a message <span><i class="fas fa-plus"></i></span></h4>
+                   </div>
+                   <div class="content">
+                        <h4>Contributions</h4>
+
+                        {{!-- add Contribution form --}}
+                        {{!-- 
+                        depositDate, payRefNumber, depositAmount, fundAssignment, comment --}}
+                        
+                        <form action="/contributions/add" method="POST">
+                          <input type="text" value="" name="depositDate" placeholder="MM/DD/YYY">
+                      
+                        
+                          <input type="text" value="" name="payRefNumber" placeholder="Payment Ref Number"> 
+                          
+                          
+                        
+                          <input type="text" value="" name="depositAmount" placeholder="Contribution Amount"> 
+                        
+                        
+                        
+                          <input type="text" value="" name="fundAssignment" placeholder="Fund Assigned to.."> 
+                        
+                      
+                        
+                          <input type="text" value="" name="comment" placeholder="Contribution Comments"> 
+                
+                        
+                          <input type="submit" value="Add Contribution">
+                        </form>
+                        
+                        
+                        
+                        {{!-- display list of contributinos with edit and delete button --}}
+                        
+                        <div class="contribution-list">
+                            <style>
+                                table, th, td {
+                          border: 1px solid black;
+                          border-collapse: collapse;
+                        }
+                                th, td{
+                                    padding: 15px;
+                                }
+                            </style>
+                            <ul>
+                                <table>
+                                    <th>Deposit Date</th><th>Payment Reference</th><th>Deposit Amount</th><th>Fund Assingment</th><th>Comment</th><th>Options</th>
+                                {{#each Contributions }}
+                                    <tr>
+                                     <td>{{ depositDate}}</td> <td> {{payRefNumber}}</td> <td>{{ depositAmount}}</td> <td>{{fundAssignment }}</td>  <td>{{comment }}</td><td><span><a href="/contributions/{{id}}">Delete</a></span></td>
+                                {{ else }}
+                                    <li> No fines available</li>
+                                {{/each }}
+                                </table>
+                            </ul>
+                        </div>
+                   </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
